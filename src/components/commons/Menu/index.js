@@ -2,6 +2,10 @@ import React from 'react';
 import { MenuWrapper } from './styles/MenuWrapper';
 
 import Logo from '../../../theme/Logo';
+import { Button } from '../Button';
+import Text from '../foundation/Text';
+
+
 
 const Menu = () => {
 
@@ -19,6 +23,7 @@ const Menu = () => {
       url: '/sobre',
     },
   ]
+
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
@@ -27,17 +32,17 @@ const Menu = () => {
       <MenuWrapper.Central>
         {links.map(link => {
           return (
-            <li>
-              <a href={link.url}>
+            <li key={link.url}>
+              <Text tag='a' variant='smallestException' href={link.url}>
                 {link.texto}
-              </a>
+              </Text>
             </li>
           )
         })}
       </MenuWrapper.Central>
       <MenuWrapper.RightSide>
-        <button>Entrar</button>
-        <button>Cadastrar</button>
+        <Button ghost variant="secondary.main">Entrar</Button>
+        <Button variant="primary.main">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   )
