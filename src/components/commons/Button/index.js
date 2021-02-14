@@ -1,16 +1,17 @@
-import styled, { css }from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariantsMap } from '../foundation/Text';
+import { TextStyleVariants } from '../../foundation/Text';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const ButtonGhost = css`
-    color: ${({theme, variant}) => get(theme, `colors.${variant}.color`)};
+    color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
     background: transparent;
     
 `;
 
 const ButtonDefault = css`
-    color: ${({theme, variant}) => get(theme, `colors.${variant}.contrastText`)};
-    background-color: ${({theme, variant}) => get(theme, `colors.${variant}.color`)};
+    color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
+    background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 
 `;
 
@@ -20,23 +21,33 @@ export const Button = styled.button`
     padding: 12px 26px;
     font-weight: bold;
     opacity: 1;
-    border-radius: ${({theme}) => theme.borderRadius};
-    transition: ${({theme}) => theme.transition};
+    transition: ${({ theme }) => theme.transition};
+    border-radius: ${({ theme }) => theme.borderRadius};
 
-    ${TextStyleVariantsMap.smallestException}
+    ${breakpointsMedia({
+        xs: css`
+        ${TextStyleVariants.smallestException}
+        `,
+        md: css`
+        ${TextStyleVariants.paragraph1}
+        `,
+    })}
+    
 
-    ${function ({ghost}) {
+    ${function ({ ghost }) {
 
         if (ghost) {
             return ButtonGhost
         }
         return ButtonDefault;
-
-    }
-    }
+    }}
     &:hover,
     &focus {
         opacity: .5;
     }
+
+
+
+
 
 `;
