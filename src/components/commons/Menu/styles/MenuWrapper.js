@@ -1,34 +1,33 @@
 import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 import { TextStyleVariants } from '../../../foundation/Text';
 
-
-export const MenuWrapper = styled.nav`
-font-family: 'Rubik', sans-serif;
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-margin-top: 18px;
-padding-left: 28px;
-padding-right: 28px;
-${breakpointsMedia({
-  md: css`
-      justify-content: flex-start;
-      margin-top: 32px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      padding: 0 16px;
-      max-width: 768px;
-    `,
-  lg: css`
-      max-width: 1160px; 
-    `,
-  xl: css`
-      max-width: 1222px;
-    `,
-})}
+const MenuWrapper = styled.nav`
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-left: 28px;
+  padding-right: 28px;
+  ${breakpointsMedia({
+    md: css`
+        justify-content: flex-start;
+        margin-top: 32px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 0 16px;
+        max-width: 768px;
+      `,
+    lg: css`
+        max-width: 1160px; 
+      `,
+    xl: css`
+        max-width: 1222px;
+      `,
+  })}
 `;
 
 MenuWrapper.LeftSide = styled.div`
@@ -36,18 +35,18 @@ MenuWrapper.LeftSide = styled.div`
   margin: 0;
   order: 1;
   ${breakpointsMedia({
-  md: css`
-        width: 131px;
-        height: 32px;
-      `,
-})}
+    md: css`
+          width: 131px;
+          height: 32px;
+        `,
+  })}
   ${breakpointsMedia({
-  md: css`
-      order: initial;
-      padding-right: 16px;
-    `,
-})}
-`
+    md: css`
+        order: initial;
+        padding-right: 16px;
+      `,
+  })}
+`;
 
 MenuWrapper.Central = styled.div`
   padding: 0;
@@ -64,17 +63,17 @@ MenuWrapper.Central = styled.div`
   padding: 12px;
 
   ${breakpointsMedia({
-  md: css`
-      max-width: 332px;
-      justify-content: space-between;
-      flex: 1;
-      order: initial;
-      border: none;
-      margin: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-    `,
-})}
+    md: css`
+        max-width: 332px;
+        justify-content: space-between;
+        flex: 1;
+        order: initial;
+        border: none;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      `,
+  })}
 
   a{
     text-align: center;
@@ -83,20 +82,20 @@ MenuWrapper.Central = styled.div`
     color: #88989E;
     transition: 200ms ease-in-out;
     ${breakpointsMedia({
-  xs: css`
-        ${TextStyleVariants.smallestException}
-    `,
-  md: css`
-      ${TextStyleVariants.paragraph1}
-    `,
-})}
+    xs: css`
+          ${TextStyleVariants.smallestException}
+      `,
+    md: css`
+        ${TextStyleVariants.paragraph1}
+      `,
+  })}
     &:hover,
     &:focus {
       font-weight: 500;
       color: #070C0E;
     }
   }
-`
+`;
 
 MenuWrapper.RightSide = styled.div`
   padding: 0;
@@ -107,8 +106,10 @@ MenuWrapper.RightSide = styled.div`
   justify-content: flex-end;
 
   ${breakpointsMedia({
-  md: css`
-      order: initial;
-    `,
-})}
-`
+    md: css`
+        order: initial;
+      `,
+  })}
+`;
+
+export default MenuWrapper;
