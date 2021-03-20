@@ -33,7 +33,9 @@ export default function Home() {
               // eslint-disable-next-line react/jsx-props-no-spreading
               {...modalProps}
             >
-              Modal daora
+              <div>
+                Modal daora blablablalalsdlasdsaldsaasdsadwqewe
+              </div>
             </Box>
           )
         }
