@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { propToStyle } from '../../../theme/utils/propToStyle';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const paragraph1 = css`
     ${({ theme }) => css`
@@ -14,13 +15,21 @@ const paragraph1 = css`
 `;
 
 const title = css`
-    ${({ theme }) => css`
-    font-family: ${theme.fontFamily};
-    
-    font-size: ${theme.typographyVariants.title.fontSize};
-    font-weight: ${theme.typographyVariants.title.fontWeight};
-    line-height: ${theme.typographyVariants.title.lineHeight};
+${({ theme }) => css`
+  font-family: ${theme.fontFamily};
+  font-size: ${theme.typographyVariants.titleXS.fontSize};
+  font-weight: ${theme.typographyVariants.titleXS.fontWeight};
+  line-height: ${theme.typographyVariants.titleXS.lineHeight};
 `}
+${breakpointsMedia({
+    md: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.title.fontSize};
+      font-weight: ${theme.typographyVariants.title.fontWeight};
+      line-height: ${theme.typographyVariants.title.lineHeight};
+    `}
+  `,
+  })}
 `;
 
 const smallestException = css`
@@ -65,12 +74,13 @@ const Text = function ({
 Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };
 
 export default Text;
