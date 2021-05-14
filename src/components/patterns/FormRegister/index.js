@@ -25,6 +25,19 @@ function FormContent() {
     <form onSubmit={
         (event) => {
           event.preventDefault();
+
+          fetch('https://instalura-api.vercel.app/api/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username: 'teste',
+              name: 'testes',
+            }),
+          })
+            .then((res) => res.ok)
+            .then((convertedRes) => console.log(convertedRes));
         }
     }
     >
