@@ -56,8 +56,22 @@ const TextBase = styled.span`
 
 // eslint-disable-next-line func-names
 const Text = function ({
-  tag, variant, children, ...props
+  tag, variant, children, href, ...props
 }) {
+  if (href) {
+    return (
+      <TextBase
+        as={tag}
+        href={href}
+        variant={variant}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {children}
+
+      </TextBase>
+    );
+  }
   return (
     <TextBase
       as={tag}
@@ -73,6 +87,7 @@ const Text = function ({
 
 Text.propTypes = {
   tag: PropTypes.string,
+  href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.string,
 };
@@ -81,6 +96,7 @@ Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: '',
 };
 
 export default Text;
